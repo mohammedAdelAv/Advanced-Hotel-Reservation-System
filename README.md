@@ -1,6 +1,6 @@
 # 🏨 Advanced Hotel Reservation System
 
-A console-based hotel reservation system built using **C#** demonstrating strong Object-Oriented Programming (OOP) principles and clean architecture design.
+A console-based hotel reservation system built using **C#**, demonstrating strong Object-Oriented Programming (OOP) principles, clean architecture, and **database integration with Entity Framework Core and SQL Server**.
 
 ---
 
@@ -15,6 +15,7 @@ A console-based hotel reservation system built using **C#** demonstrating strong
 * Top Customers (Highest Spending)
 * Top Rooms (Most Reserved)
 * Discount System using Strategy Pattern
+* **Persistent Data Storage using SQL Server**
 
 ---
 
@@ -25,6 +26,8 @@ A console-based hotel reservation system built using **C#** demonstrating strong
 * Design Patterns (Strategy Pattern)
 * Exception Handling
 * Clean Code Principles
+* **Entity Framework Core (Code First Approach)**
+* **Database Relationships (One-to-Many)**
 
 ---
 
@@ -35,6 +38,33 @@ Implemented using `IDiscountStrategy` interface:
 * 5% discount for ≤ 5 nights
 * 10% discount for 6–10 nights
 * 15% discount for > 10 nights
+
+---
+
+## 🗄 Database Integration
+
+* SQL Server (hosted on a Virtual Machine)
+* Entity Framework Core
+* Code First Migrations
+* Tables:
+
+  * Guests
+  * Rooms
+  * Reservations
+  * Employees
+
+---
+
+## 🔧 Technical Highlights
+
+* Configured **remote SQL Server connection (VM)**
+* Enabled **TCP/IP and Port 1433**
+* Implemented **Design-Time DbContext Factory**
+* Solved real-world issues:
+
+  * Network configuration
+  * Firewall rules
+  * Authentication (SQL Login)
 
 ---
 
@@ -60,14 +90,16 @@ Implemented using `IDiscountStrategy` interface:
 
 * C#
 * .NET Console Application
+* Entity Framework Core
+* SQL Server
 
 ---
 
 ## 📌 Future Improvements
 
+* Build REST API (ASP.NET Core)
 * GUI (Windows Forms / WPF)
-* Database Integration (SQL Server)
-* File Storage (JSON)
+* Authentication & Authorization
 * Invoice System
 
 ---

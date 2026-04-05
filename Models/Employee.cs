@@ -1,8 +1,12 @@
-﻿namespace Advanced_Hotel_Reservation_System.People
+﻿using Advanced_Hotel_Reservation_System.People;
+using System.ComponentModel.DataAnnotations;
+
+namespace Advanced_Hotel_Reservation_System.Models
 {
-    internal class Employees : Person
+    public class Employee : Person
     {
         private string position = string.Empty;
+        [Required]
         public string Position
         {
             get => position;
@@ -17,6 +21,7 @@
         }
 
         private double salary;
+        [Required]
         public double Salary
         {
             get => salary;
@@ -30,7 +35,7 @@
             }
         }
 
-        public Employees(int id, string name, string position, double salary) : base(id, name)
+        public Employee(int id, string name, string position, double salary) : base(id, name)
         {
             this.Position = position;
             this.Salary = salary;

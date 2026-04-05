@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Advanced_Hotel_Reservation_System.interfaces
+﻿namespace Advanced_Hotel_Reservation_System.interfaces
 {
-    internal interface IDiscountStrategy
+    public interface IDiscountStrategy
     {
+        public double ApplyDiscount(int nights);
     }
 }

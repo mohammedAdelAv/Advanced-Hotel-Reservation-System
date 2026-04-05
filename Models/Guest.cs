@@ -1,11 +1,14 @@
 ﻿using Advanced_Hotel_Reservation_System.enums;
+using Advanced_Hotel_Reservation_System.People;
+using System.ComponentModel.DataAnnotations;
 using System.Net.NetworkInformation;
 
-namespace Advanced_Hotel_Reservation_System.People
+namespace Advanced_Hotel_Reservation_System.Models
 {
-    internal class Guests : Person
+    public class Guest : Person
     {
-        public List<Reservation> Reservations { get; private set; }
+
+        public List<Reservation> Reservations { get; set; } = new List<Reservation>();
 
         private string email = string.Empty;
         public string Email
@@ -21,6 +24,7 @@ namespace Advanced_Hotel_Reservation_System.People
             }
         }
         private string phoneNumber = string.Empty;
+        [Required]
         public string PhoneNumber
         {
             get => phoneNumber;
@@ -33,7 +37,7 @@ namespace Advanced_Hotel_Reservation_System.People
                 this.phoneNumber = value;
             }
         }
-        public Guests(int id, string name, string email, string phoneNumber) : base(id, name)
+        public Guest(int id, string name, string email, string phoneNumber) : base(id, name)
         {
             this.Email = email;
             this.PhoneNumber = phoneNumber;

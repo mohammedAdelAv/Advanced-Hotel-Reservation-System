@@ -1,14 +1,19 @@
-﻿using Advanced_Hotel_Reservation_System;
-using Advanced_Hotel_Reservation_System.enums;
-using Advanced_Hotel_Reservation_System.People;
+﻿using Advanced_Hotel_Reservation_System.enums;
+using Advanced_Hotel_Reservation_System.Models;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Advanced_Hotel_Reservation_System.Data;
 
 Console.WriteLine("Program Started...");
 
 // Lists to store guests, rooms, and employees
-List<Guests> guests = new List<Guests>();
+List<Guest> guests = new List<Guest>();
 List<Room> rooms = new List<Room>();
-List<Employees> employees = new List<Employees>();
+List<Employee> employees = new List<Employee>();
 
+var serviceCollection = new ServiceCollection();
+serviceCollection.AddDbContext<AppDbContext>(options => options.UseSqlServer("options.UseSqlServer(\"Server=192.168.1.19,1433;Database=HotelDB;Trusted_Connection=True;TrustServerCertificate=True\");"));
 while (true)
 {
     Console.WriteLine("\nWelcome to the Hotel Reservation Management System");
@@ -42,7 +47,7 @@ while (true)
                 string gusetEmail = Console.ReadLine()!;
                 Console.WriteLine("Enter Guest Phone Number:");
                 string guestPhone = Console.ReadLine()!;
-                Guests guest = new Guests(guestId, guestName, gusetEmail, guestPhone);
+                Guest guest = new Guest(guestId, guestName, gusetEmail, guestPhone);
                 guests.Add(guest);
                 Console.WriteLine("Guest added successfully!");
                 Console.WriteLine("Guest Details:");
@@ -60,7 +65,7 @@ while (true)
                 string employeePosition = Console.ReadLine()!;
                 Console.WriteLine("Enter Employee Salary:");
                 double.TryParse(Console.ReadLine(), out double employeeSalary);
-                Employees employee = new Employees(employeeId, employeeName, employeePosition, employeeSalary);
+                Employee employee = new Employee(employeeId, employeeName, employeePosition, employeeSalary);
                 employees.Add(employee);
                 Console.WriteLine("Employee added successfully!");
                 Console.WriteLine("Employee Details:");
@@ -112,7 +117,7 @@ while (true)
                 int.TryParse(Console.ReadLine(), out int guestId);
                 Console.WriteLine("Enter Room Id:");
                 int.TryParse(Console.ReadLine(), out int roomId);
-                Guests? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
+                Guest? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
                 if (findGuest == null)
                 {
                     Console.WriteLine("Guest not found!");
@@ -147,7 +152,7 @@ while (true)
             {
                 Console.WriteLine("Enter Guest Id:");
                 int.TryParse(Console.ReadLine(), out int guestId);
-                Guests? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
+                Guest? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
                 if (findGuest == null)
                 {
                     Console.WriteLine("Guest not found!");
@@ -161,7 +166,7 @@ while (true)
             {
                 Console.WriteLine("Enter Guest Id:");
                 int.TryParse(Console.ReadLine(), out int guestId);
-                Guests? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
+                Guest? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
                 if (findGuest == null)
                 {
                     Console.WriteLine("Guest not found!");
@@ -185,7 +190,7 @@ while (true)
                 int.TryParse(Console.ReadLine(), out int guestId);
                 Console.WriteLine("Enter Room Id:");
                 int.TryParse(Console.ReadLine(), out int roomId);
-                Guests? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
+                Guest? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
                 if (findGuest == null)
                 {
                     Console.WriteLine("Guest not found!");
@@ -214,7 +219,7 @@ while (true)
             {
                 Console.WriteLine("Enter Guest Id:");
                 int.TryParse(Console.ReadLine(), out int guestId);
-                Guests? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
+                Guest? findGuest = guests.FirstOrDefault(g => g.Id == guestId);
                 if (findGuest == null)
                 {
                     Console.WriteLine("Guest not found!");

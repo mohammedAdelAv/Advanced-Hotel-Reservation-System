@@ -1,9 +1,13 @@
 ﻿using Advanced_Hotel_Reservation_System.enums;
+using System.ComponentModel.DataAnnotations;
 
-namespace Advanced_Hotel_Reservation_System
+namespace Advanced_Hotel_Reservation_System.Models
 {
-    internal class Room
+    public class Room
     {
+        public List<Reservation> Reservations { get; set; } = new List<Reservation>();
+
+        [Key]
         private int roomId;
         public int RoomId
         {
@@ -19,6 +23,7 @@ namespace Advanced_Hotel_Reservation_System
         }
 
         private double price;
+        [Required]
         public double Price
         {
             get => price;
@@ -31,7 +36,7 @@ namespace Advanced_Hotel_Reservation_System
                 this.price = value;
             }
         }
-
+        [Required]
         public RoomType Type { get; set; }
         public RoomStatus Status { get; private set; }
 
@@ -44,6 +49,9 @@ namespace Advanced_Hotel_Reservation_System
             this.Price = price;
             this.Status = RoomStatus.Available;
 
+        }
+        public Room()
+        {
         }
 
         public void DisplayInfo()

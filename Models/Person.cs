@@ -1,14 +1,13 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Advanced_Hotel_Reservation_System.People
+namespace Advanced_Hotel_Reservation_System.Models
 {
     public abstract class Person
     {
-       
+
         private int id;
 
-        [Key]  
+        [Key]
         public int Id
         {
             get => id;
@@ -22,7 +21,6 @@ namespace Advanced_Hotel_Reservation_System.People
             }
         }
 
-        
         private string name = string.Empty;
 
         [Required]
@@ -41,10 +39,11 @@ namespace Advanced_Hotel_Reservation_System.People
 
         public Person(int id, string name)
         {
-            this.Id = id;
-            this.Name = name;
+            Id = id;
+            Name = name;
         }
 
         public abstract void DisplayInfo();
+
     }
 }

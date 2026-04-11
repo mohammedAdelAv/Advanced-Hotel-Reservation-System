@@ -7,8 +7,9 @@ namespace Advanced_Hotel_Reservation_System.Models
     {
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
 
-        [Key]
         private int roomId;
+
+        [Key]
         public int RoomId
         {
             get => roomId;

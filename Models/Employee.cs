@@ -1,10 +1,10 @@
-﻿using Advanced_Hotel_Reservation_System.People;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Advanced_Hotel_Reservation_System.Models
 {
     public class Employee : Person
     {
+
         private string position = string.Empty;
         [Required]
         public string Position
